@@ -7,9 +7,7 @@ if(WIN32)
             ${BIN_DIR}/Equalizer.dll
             ${BIN_DIR}/EqualizerServer.dll
             ${BIN_DIR}/pthread.dll
-            ${BIN_DIR}/displaySystem_Equalizer.dll
-            # Executables
-            ${BIN_DIR}/orun.exe
+            ${BIN_DIR}/displaySystem_Equalizer.dll)
 else()
     file(INSTALL DESTINATION ${PACKAGE_DIR}/bin
         TYPE FILE
