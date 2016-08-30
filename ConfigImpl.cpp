@@ -76,6 +76,17 @@ void keyboardButtonCallback(uint key, Event::Type type)
     HANDLE_KEY_FLAG(292, Shift)
     HANDLE_KEY_FLAG(294, Ctrl)
 
+#if (OMEGA_VERSION_NUM > 1500)
+    HANDLE_KEY_FLAG(KEY_LEFT, ButtonLeft);
+    HANDLE_KEY_FLAG(KEY_RIGHT, ButtonRight);
+    HANDLE_KEY_FLAG(KEY_DOWN, ButtonDown);
+    HANDLE_KEY_FLAG(KEY_UP, ButtonUp);
+
+    HANDLE_KEY_FLAG(KEY_ENTER, Enter);
+    HANDLE_KEY_FLAG(KEY_BACKSPACE, Backspace);
+    HANDLE_KEY_FLAG(KEY_TAB, Button6);
+    HANDLE_KEY_FLAG(KEY_HOME, Button7);
+#else
     // Convert arrow keys to buttons. This allows user code to do es. 
     // evt.isButtonDown(Event::ButtonLeft) without having to make a 
     // separate call to isKeyDown when using keyboards instead of gamepads.
@@ -89,7 +100,7 @@ void keyboardButtonCallback(uint key, Event::Type type)
     HANDLE_KEY_FLAG(KC_BACKSPACE, Backspace);
     HANDLE_KEY_FLAG(KC_TAB, Button6);
     HANDLE_KEY_FLAG(KC_HOME, Button7);
-
+#endif
     evt->setFlags(sKeyFlags);
 
     // Remove the bit of all buttons that have been unpressed.
